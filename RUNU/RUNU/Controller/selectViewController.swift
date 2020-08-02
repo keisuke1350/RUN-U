@@ -8,8 +8,20 @@
 
 import UIKit
 import AVFoundation
+import Firebase
+import FirebaseUI
 
-class selectViewController: UIViewController {
+class selectViewController: UIViewController,FUIAuthDelegate {
+    
+    @IBOutlet weak var AuthButton: UIButton!
+    
+    var authUI: FUIAuth {get { return FUIAuth.defaultAuthUI()!}}
+    //認証に使用するプロバイダの選択
+    let providers: [FUIAuthProvider] = [
+        FUIGoogleAuth(),
+        FUIFacebookAuth(),
+        FUIEmailAuth()
+    ]
     
     var player = AVPlayer()
 
@@ -33,6 +45,27 @@ class selectViewController: UIViewController {
             
             self.player.seek(to: .zero)
             self.player.play()
+        }
+        
+        //authUIのデリゲート
+        self.authUI.delegate = self
+        self.authUI.providers = providers
+        AuthButton.addTarget(self, action: #selector(self.AuthButtonTapped(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func AuthButtonTapped(sender: AnyObject) {
+        //FirebaseUIのViewの取得
+        let authViewController = self.authUI.authViewController()
+        //FirebaseUIのViewの表示
+        self.present(authViewController,animated: true, completion: nil)
+    }
+    
+    //認証画面から離れた時に呼ばれる(キャンセルボタン押下含む)
+    public func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        //認証に成功した場合
+        if error == nil {
+            let vc = TabListViewController()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

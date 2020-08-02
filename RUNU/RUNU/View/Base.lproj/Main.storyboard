@@ -124,6 +124,9 @@
                         <viewLayoutGuide key="safeArea" id="yf6-Xo-QxQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="ocY-qU-GDp"/>
+                    <connections>
+                        <outlet property="AuthButton" destination="XkK-OB-MNU" id="V3H-dm-aR3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zto-d7-hTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -330,7 +333,7 @@
             </objects>
             <point key="canvasLocation" x="2812" y="138.98050974512745"/>
         </scene>
-        <!--Item 2-->
+        <!--note-->
         <scene sceneID="Lcd-Pe-KSB">
             <objects>
                 <viewController id="eD8-8W-ubd" sceneMemberID="viewController">
@@ -340,23 +343,71 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="wsd-wO-sms"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="tOa-5s-FB1"/>
+                    <tabBarItem key="tabBarItem" title="note" selectedImage="pencil.circle.fill" catalog="system" id="tOa-5s-FB1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5x-Ir-qXd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4766" y="470"/>
         </scene>
-        <!--Item 1-->
+        <!--メッセージ-->
+        <scene sceneID="F88-2f-4Kr">
+            <objects>
+                <viewController id="siQ-Cc-l9X" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i8P-Ae-jEh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YhR-TK-3bm"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="メッセージ" selectedImage="message.fill" catalog="system" id="utI-x2-6AT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bwS-Xg-sE9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4766" y="1863"/>
+        </scene>
+        <!--プロフィール-->
+        <scene sceneID="5Ov-ie-sJy">
+            <objects>
+                <viewController id="DFW-cx-FlW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GH8-6M-DUB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gE4-oF-bLW"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="プロフィール" selectedImage="person.fill" catalog="system" id="5P0-TQ-gcG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qar-op-bJw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4766" y="2568"/>
+        </scene>
+        <!--出品-->
+        <scene sceneID="QAp-0a-Orz">
+            <objects>
+                <viewController id="QYE-Nl-Eaw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dyl-EG-nAH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="KPn-Cc-1ZV"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="出品" selectedImage="camera.fill" catalog="system" id="ecz-Ld-Agu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jny-FN-Q1j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4766" y="1173"/>
+        </scene>
+        <!--ラン-->
         <scene sceneID="RYK-j8-GNx">
             <objects>
-                <viewController id="YMw-rg-lbu" sceneMemberID="viewController">
+                <viewController id="YMw-rg-lbu" customClass="TabListViewController" customModule="RUNU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SPn-G9-I1D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="qgI-hw-vER"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="RKK-XX-Ykj"/>
+                    <tabBarItem key="tabBarItem" title="ラン" selectedImage="location.circle.fill" catalog="system" id="RKK-XX-Ykj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IV2-JO-VZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -365,7 +416,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="dYU-NG-NvM">
             <objects>
-                <tabBarController id="wbw-T8-uTG" sceneMemberID="viewController">
+                <tabBarController id="wbw-T8-uTG" customClass="TabBarController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="lI6-JN-FAn"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kqc-0q-iVM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -375,6 +426,9 @@
                     <connections>
                         <segue destination="YMw-rg-lbu" kind="relationship" relationship="viewControllers" id="j9B-7J-VSb"/>
                         <segue destination="eD8-8W-ubd" kind="relationship" relationship="viewControllers" id="i4V-NV-EHY"/>
+                        <segue destination="QYE-Nl-Eaw" kind="relationship" relationship="viewControllers" id="bD7-ls-kQD"/>
+                        <segue destination="siQ-Cc-l9X" kind="relationship" relationship="viewControllers" id="hkf-8a-5D6"/>
+                        <segue destination="DFW-cx-FlW" kind="relationship" relationship="viewControllers" id="QAV-ku-f7F"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0T-Fv-YEo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -401,6 +455,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="96"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="trail" width="1282" height="1920"/>
     </resources>
 </document>
