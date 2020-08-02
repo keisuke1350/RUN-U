@@ -21,6 +21,7 @@
 		324DE4EB24D44BAB007576C3 /* runu-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 324DE4E924D44BA9007576C3 /* runu-2.json */; };
 		324DE4EC24D44BAB007576C3 /* runu-5.json in Resources */ = {isa = PBXBuildFile; fileRef = 324DE4EA24D44BAB007576C3 /* runu-5.json */; };
 		324DE4EE24D44DAA007576C3 /* RUNUback.mov in Resources */ = {isa = PBXBuildFile; fileRef = 324DE4ED24D44DAA007576C3 /* RUNUback.mov */; };
+		324DE4F024D5A532007576C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 324DE4EF24D5A532007576C3 /* GoogleService-Info.plist */; };
 		CFB4E3932ADE8A72755E1AB5 /* Pods_RUNU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17828378F036BD1ACE55188F /* Pods_RUNU.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		324DE4E924D44BA9007576C3 /* runu-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "runu-2.json"; sourceTree = "<group>"; };
 		324DE4EA24D44BAB007576C3 /* runu-5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "runu-5.json"; sourceTree = "<group>"; };
 		324DE4ED24D44DAA007576C3 /* RUNUback.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = RUNUback.mov; sourceTree = "<group>"; };
+		324DE4EF24D5A532007576C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB6C2A4E4F4502A6AC23F4EE /* Pods-RUNU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RUNU.debug.xcconfig"; path = "Target Support Files/Pods-RUNU/Pods-RUNU.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				324DE4EA24D44BAB007576C3 /* runu-5.json */,
 				3227C87524D1BD2600D82F7D /* Assets.xcassets */,
 				3227C87A24D1BD2600D82F7D /* Info.plist */,
+				324DE4EF24D5A532007576C3 /* GoogleService-Info.plist */,
 			);
 			path = RUNU;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				324DE4EE24D44DAA007576C3 /* RUNUback.mov in Resources */,
 				324DE4E324D447C6007576C3 /* runu-1.json in Resources */,
 				324DE4EB24D44BAB007576C3 /* runu-2.json in Resources */,
+				324DE4F024D5A532007576C3 /* GoogleService-Info.plist in Resources */,
 				324DE4E524D447C6007576C3 /* runu-3.json in Resources */,
 				324DE4EC24D44BAB007576C3 /* runu-5.json in Resources */,
 			);
