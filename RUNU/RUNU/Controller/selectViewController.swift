@@ -10,8 +10,14 @@ import UIKit
 import AVFoundation
 import Firebase
 import FirebaseUI
+import PKHUD
+import FirebaseAuth
+import CryptoKit
+import AuthenticationServices
 
 class selectViewController: UIViewController,FUIAuthDelegate {
+    
+    fileprivate var currentNonce: String?
     
     @IBOutlet weak var AuthButton: UIButton!
     
@@ -51,7 +57,100 @@ class selectViewController: UIViewController,FUIAuthDelegate {
         self.authUI.delegate = self
         self.authUI.providers = providers
         AuthButton.addTarget(self, action: #selector(self.AuthButtonTapped(sender:)), for: .touchUpInside)
+        
+        //Sign in with apple 実装
+        if #available(iOS 13.0, *){
+            let appleIdButton = ASAuthorizationAppleIDButton(
+                authorizationButtonType: .default, authorizationButtonStyle: .black
+            )
+            
+            appleIdButton.addTarget(self, action: #selector(handleTap(_sender:)), for: .touchUpInside)
+            //　レイアウトの設定
+            appleIdButton.translatesAutoresizingMaskIntoConstraints = false
+            //Viewに追加
+            view.addSubview(appleIdButton)
+            
+            //AutoLayout設定
+            //appleLoginButtonの中心を画面の中心にセットする
+            appleIdButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            //appleIdButtonの幅は、親ビューの0.7倍
+            appleIdButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,multiplier: 0.7).isActive = true
+            //appleLoginButtonの高さは40
+            appleIdButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+            appleIdButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -25.0).isActive = true
+            
+        }
+        
     }
+    
+    //loginぶButtonを押した際の挙動を設定
+    @available(iOS 13.0, *)
+    @objc func handleTap(_sender: ASAuthorizationAppleIDButton) {
+        //ランダムの文字列を生成
+        let nonce = randomNonceString()
+        //delegateで使用するため代入
+        currentNonce = nonce
+        //requestを生成
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        //sha256で変換したnonceをrequestのnonceにセット
+        request.nonce = sha256(nonce)
+        //controllerをインスタンスかする(delegateで使用するcontroller)
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
+    
+    //randomにて文字列を生成する関数を作成
+    func randomNonceString(length: Int = 32) -> String {
+        precondition(length > 0)
+        let charset: Array<Character> =
+            Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+        
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0 ..< 16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+                }
+                return random
+            }
+            
+            randoms.forEach { random in
+                if length == 0 {
+                    return
+                }
+                
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+        return result
+    }
+    
+    //SHA256を使用してハッシュ変換する関数を用意
+    @available(iOS 13, *)
+    private func sha256(_ input: String) -> String {
+      let inputData = Data(input.utf8)
+      let hashedData = SHA256.hash(data: inputData)
+      let hashString = hashedData.compactMap {
+        return String(format: "%02x", $0)
+      }.joined()
+
+      return hashString
+    }
+    
+    
+    
+    @IBAction func handleBackViewButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @objc func AuthButtonTapped(sender: AnyObject) {
         //FirebaseUIのViewの取得
@@ -64,8 +163,9 @@ class selectViewController: UIViewController,FUIAuthDelegate {
     public func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         //認証に成功した場合
         if error == nil {
-            let vc = TabListViewController()
+            let vc = self.storyboard?.instantiateViewController(identifier: "TabBarControllerId") as! UITabBarController
             navigationController?.pushViewController(vc, animated: true)
+            HUD.flash(.success, delay: 1)
         }
     }
     
@@ -81,3 +181,63 @@ class selectViewController: UIViewController,FUIAuthDelegate {
     */
 
 }
+
+//extensitonでdelegate関数に追記していく
+extension selectViewController: ASAuthorizationControllerDelegate,ASAuthorizationControllerPresentationContextProviding{
+    //認証が成功したときに呼ばれる関数
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        //credentialが存在するかチェック
+        guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else {
+            return
+            
+        }
+        //nonceがセットされているかチェック
+        guard let nonce = currentNonce else {
+            fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            
+        }
+        //credentialからtokenが取得できるかチェック
+        guard let appleIDToken = appleIDCredential.identityToken else {
+            print("Unable to fetch identity token")
+            return
+        }
+        //tokenのエンコードを失敗
+        guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+            print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+            return
+        }
+        //認証に必要なcredentialをセット
+        let credential = OAuthProvider.credential(withProviderID: "apple.id", idToken: idTokenString, rawNonce: nonce)
+        //Firebaseへのログイン実行
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                print(error)
+                //PKHUDアニメーション
+                HUD.flash(.labeledError(title: "予期せぬエラー", subtitle: "再度お試しください"),delay: 1)
+                return
+            }
+            if let authResult = authResult {
+                print(authResult)
+                //PKHUDのアニメーション
+                HUD.flash(.labeledSuccess(title: "ログイン完了", subtitle: nil), onView: self.view, delay: 1) { _ in
+                    // 画面遷移など行う
+                    let vc = self.storyboard?.instantiateViewController(identifier: "TabBarControllerId") as! UITabBarController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    }
+            }
+        }
+    }
+    
+    // delegateのプロトコルに設定されているため、書いておく
+    func presentationAnchor(for _: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
+    }
+
+    // Appleのログイン側でエラーがあった時に呼ばれる
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+      // Handle error.
+      print("Sign in with Apple errored: \(error)")
+    }
+}
+
+

@@ -22,5 +22,7 @@ target 'RUNU' do
   pod 'FirebaseUI'
   pod 'Firebase/Core'
   pod 'TextFieldEffects'
+  pod 'FSCalendar'
+  pod 'Pastel'
 
 end

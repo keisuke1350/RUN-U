@@ -14,6 +14,7 @@ import FirebaseStorage
 import FirebaseUI
 import FirebaseAuth
 import TextFieldEffects
+import PKHUD
 
 class registerViewController: UIViewController {
     
@@ -136,6 +137,7 @@ class registerViewController: UIViewController {
                 
                 print("Firestoreへの情報の保存が成功しました")
                 self.dismiss(animated: true, completion: nil)
+                HUD.flash(.success, delay: 0.1)
             }
                
         }

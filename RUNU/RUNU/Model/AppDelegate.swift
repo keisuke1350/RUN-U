@@ -11,6 +11,7 @@ import Firebase
 import FirebaseUI
 import GoogleMobileAds
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
