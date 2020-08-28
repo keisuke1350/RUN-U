@@ -417,6 +417,7 @@ PODS:
   - SegementSlide (3.0.0)
   - SwiftyJSON (5.0.0)
   - TextFieldEffects (1.6.0)
+  - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -437,6 +438,7 @@ DEPENDENCIES:
   - SegementSlide
   - SwiftyJSON
   - TextFieldEffects
+  - XLPagerTabStrip
 
 SPEC REPOS:
   trunk:
@@ -477,6 +479,7 @@ SPEC REPOS:
     - SegementSlide
     - SwiftyJSON
     - TextFieldEffects
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -516,7 +519,8 @@ SPEC CHECKSUMS:
   SegementSlide: ad0a6de50cbcc071da9ec8b0f403a4e75b20ba9a
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 2ee296dda4eb2cabd2d5f183ea8789dd199b7290
+PODFILE CHECKSUM: 23ebad075ae3580bd90e7ace5e94a3921cbd5908
 
 COCOAPODS: 1.9.3

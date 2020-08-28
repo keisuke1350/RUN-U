@@ -44,11 +44,6 @@ class ViewController: UIViewController,UIScrollViewDelegate {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        //ナビゲーションバーを非表示
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
     //viewdidloadに記載する内容を関数で持たせる
     func setUpScroll(){
         //UIScrollViewdeledateのdelegate先を記載

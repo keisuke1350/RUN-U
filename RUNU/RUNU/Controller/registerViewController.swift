@@ -63,11 +63,11 @@ class registerViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //navigationbarは非表示
-        self.navigationController?.isNavigationBarHidden = true
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        //navigationbarは非表示
+//        self.navigationController?.isNavigationBarHidden = true
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,6 +102,7 @@ class registerViewController: UIViewController {
                 guard let urlString = url?.absoluteString else { return }
                 print("urlString:", urlString)
                 self.createUserToFirestore(profileImageUrl: urlString)
+                self.performSegue(withIdentifier: "next", sender: nil)
             }
         }
         

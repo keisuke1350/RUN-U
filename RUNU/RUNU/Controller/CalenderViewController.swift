@@ -36,6 +36,8 @@ class CalenderViewController: UIViewController {
                               UIColor(red: 58/255, green: 255/255, blue: 217/255, alpha: 1.0)])
 
         pastelView.startAnimation()
+        view.insertSubview(pastelView, at: 0)
+        
     }
     
 

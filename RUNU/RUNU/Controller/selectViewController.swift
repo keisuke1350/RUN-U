@@ -81,7 +81,18 @@ class selectViewController: UIViewController,FUIAuthDelegate {
             
         }
         
+//        if self.isLogin() == true {
+//
+//            //ログイン状態の時はスキップ
+//        }else{
+//            //まだログインしていない場合はログイン画面表示
+//
+//        }
+        
+        
+        
     }
+    
     
     //loginぶButtonを押した際の挙動を設定
     @available(iOS 13.0, *)
@@ -100,6 +111,18 @@ class selectViewController: UIViewController,FUIAuthDelegate {
         controller.presentationContextProvider = self
         controller.performRequests()
     }
+    
+//    //ログイン認証されているかどうかを判定する関数
+//    func isLogin() -> Bool {
+//
+//        //ログインしているユーザーかどうか判定
+//        if Auth.auth().currentUser != nil {
+//            return true
+//        } else {
+//            return false
+//        }
+//
+//    }
     
     //randomにて文字列を生成する関数を作成
     func randomNonceString(length: Int = 32) -> String {
@@ -163,9 +186,8 @@ class selectViewController: UIViewController,FUIAuthDelegate {
     public func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         //認証に成功した場合
         if error == nil {
-            let vc = self.storyboard?.instantiateViewController(identifier: "TabBarControllerId") as! UITabBarController
-            navigationController?.pushViewController(vc, animated: true)
-            HUD.flash(.success, delay: 1)
+            performSegue(withIdentifier: "CurrentUser", sender: nil)
+            HUD.flash(.success, onView: tabBarController?.view ,delay: 1)
         }
     }
     
@@ -221,8 +243,8 @@ extension selectViewController: ASAuthorizationControllerDelegate,ASAuthorizatio
                 //PKHUDのアニメーション
                 HUD.flash(.labeledSuccess(title: "ログイン完了", subtitle: nil), onView: self.view, delay: 1) { _ in
                     // 画面遷移など行う
-                    let vc = self.storyboard?.instantiateViewController(identifier: "TabBarControllerId") as! UITabBarController
-                    self.navigationController?.pushViewController(vc, animated: true)
+//                    let vc = self.storyboard?.instantiateViewController(identifier: "TabBarControllerId") as! UITabBarController
+                    self.performSegue(withIdentifier: "CurrentUser", sender: nil)
                     }
             }
         }

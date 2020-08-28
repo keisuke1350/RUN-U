@@ -1,0 +1,57 @@
+
+/* Class = "UITabBarItem"; title = "プロフィール"; ObjectID = "5P0-TQ-gcG"; */
+"5P0-TQ-gcG.title" = "プロフィール";
+
+/* Class = "UILabel"; text = "email"; ObjectID = "H1p-QL-HQl"; */
+"H1p-QL-HQl.text" = "email";
+
+/* Class = "UIButton"; normalTitle = "新規登録"; ObjectID = "JHs-R0-MyS"; */
+"JHs-R0-MyS.normalTitle" = "新規登録";
+
+/* Class = "UILabel"; text = "RUN U"; ObjectID = "PAp-NJ-0RI"; */
+"PAp-NJ-0RI.text" = "RUN U";
+
+/* Class = "UITabBarItem"; title = "ランデータ"; ObjectID = "RKK-XX-Ykj"; */
+"RKK-XX-Ykj.title" = "ランデータ";
+
+/* Class = "UITextField"; placeholder = "ユーザーの名前"; ObjectID = "Tcf-JC-xA2"; */
+"Tcf-JC-xA2.placeholder" = "ユーザーの名前";
+
+/* Class = "UIButton"; normalTitle = "スキップ"; ObjectID = "ToO-Y2-R0V"; */
+"ToO-Y2-R0V.normalTitle" = "スキップ";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "ViQ-Qw-zjW"; */
+"ViQ-Qw-zjW.normalTitle" = "Register";
+
+/* Class = "UIButton"; normalTitle = "ログイン"; ObjectID = "XkK-OB-MNU"; */
+"XkK-OB-MNU.normalTitle" = "ログイン";
+
+/* Class = "UITextField"; placeholder = "メールアドレス"; ObjectID = "YIT-e7-pMI"; */
+"YIT-e7-pMI.placeholder" = "メールアドレス";
+
+/* Class = "UIButton"; normalTitle = "既にアカウントをお持ちの方はコチラ"; ObjectID = "bn8-EU-LAS"; */
+"bn8-EU-LAS.normalTitle" = "既にアカウントをお持ちの方はコチラ";
+
+/* Class = "UITabBarItem"; title = "カレンダー"; ObjectID = "ecz-Ld-Agu"; */
+"ecz-Ld-Agu.title" = "カレンダー";
+
+/* Class = "UILabel"; text = "RUNで繋がる体験を、あなたに"; ObjectID = "f2j-qY-rVn"; */
+"f2j-qY-rVn.text" = "RUNで繋がる体験を、あなたに";
+
+/* Class = "UILabel"; text = "password"; ObjectID = "nST-Nh-dGy"; */
+"nST-Nh-dGy.text" = "password";
+
+/* Class = "UITextField"; placeholder = "パスワード"; ObjectID = "pwk-yv-Rbm"; */
+"pwk-yv-Rbm.placeholder" = "パスワード";
+
+/* Class = "UILabel"; text = "user name"; ObjectID = "rDG-ce-Cvl"; */
+"rDG-ce-Cvl.text" = "user name";
+
+/* Class = "UITabBarItem"; title = "note"; ObjectID = "tOa-5s-FB1"; */
+"tOa-5s-FB1.title" = "note";
+
+/* Class = "UITabBarItem"; title = "U アクション"; ObjectID = "utI-x2-6AT"; */
+"utI-x2-6AT.title" = "U アクション";
+
+/* Class = "UIButton"; normalTitle = "プロフィール画像"; ObjectID = "v77-MU-t2L"; */
+"v77-MU-t2L.normalTitle" = "プロフィール画像";
