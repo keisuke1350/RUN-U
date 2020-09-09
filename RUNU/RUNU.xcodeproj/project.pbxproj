@@ -28,6 +28,8 @@
 		324FFAEC24DE4F6B00A15613 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FFAEB24DE4F6B00A15613 /* CalenderViewController.swift */; };
 		328BA11524EF087100AA32AF /* myProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328BA11424EF087100AA32AF /* myProfileViewController.swift */; };
 		328BA11724F16D4D00AA32AF /* uActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328BA11624F16D4D00AA32AF /* uActionViewController.swift */; };
+		32C20049250363660040826C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C20048250363660040826C /* HealthKit.framework */; };
+		32C2004B250363A10040826C /* HealthKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C2004A250363A10040826C /* HealthKitUI.framework */; };
 		CFB4E3932ADE8A72755E1AB5 /* Pods_RUNU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17828378F036BD1ACE55188F /* Pods_RUNU.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		328BA11324EC7D3100AA32AF /* RUNU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RUNU.entitlements; sourceTree = "<group>"; };
 		328BA11424EF087100AA32AF /* myProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myProfileViewController.swift; sourceTree = "<group>"; };
 		328BA11624F16D4D00AA32AF /* uActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uActionViewController.swift; sourceTree = "<group>"; };
+		32C20048250363660040826C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		32C2004A250363A10040826C /* HealthKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKitUI.framework; path = System/Library/Frameworks/HealthKitUI.framework; sourceTree = SDKROOT; };
 		BB6C2A4E4F4502A6AC23F4EE /* Pods-RUNU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RUNU.debug.xcconfig"; path = "Target Support Files/Pods-RUNU/Pods-RUNU.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +73,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB4E3932ADE8A72755E1AB5 /* Pods_RUNU.framework in Frameworks */,
+				32C20049250363660040826C /* HealthKit.framework in Frameworks */,
+				32C2004B250363A10040826C /* HealthKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +165,8 @@
 		CEAAC3AD439F2FEDDE1DDC2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32C2004A250363A10040826C /* HealthKitUI.framework */,
+				32C20048250363660040826C /* HealthKit.framework */,
 				17828378F036BD1ACE55188F /* Pods_RUNU.framework */,
 			);
 			name = Frameworks;

@@ -188,7 +188,6 @@ class selectViewController: UIViewController,FUIAuthDelegate {
         if error == nil {
             HUD.flash(.success, onView: tabBarController?.view ,delay: 0)
             performSegue(withIdentifier: "CurrentUser", sender: nil)
-            self.tabBarController?.tabBar.layer.zPosition = -1
         }
     }
     
