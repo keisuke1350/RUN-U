@@ -44,6 +44,7 @@ class ViewController: UIViewController,UIScrollViewDelegate {
         
     }
     
+    
     //viewdidloadに記載する内容を関数で持たせる
     func setUpScroll(){
         //UIScrollViewdeledateのdelegate先を記載

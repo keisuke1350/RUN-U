@@ -63,15 +63,17 @@ class registerViewController: UIViewController {
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        //navigationbarは非表示
-//        self.navigationController?.isNavigationBarHidden = true
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //navigationbarは非表示
+        self.navigationController?.isNavigationBarHidden = true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+
     
     //キーボード以外の場所を触れてキーボードを閉じる設定
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -244,6 +246,13 @@ extension registerViewController:UIImagePickerControllerDelegate,UINavigationCon
         
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == "、" || string == "。" {
+            return false
+        }
+        return true
     }
     
     

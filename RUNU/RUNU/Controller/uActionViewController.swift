@@ -73,6 +73,10 @@ class uActionViewController: UIViewController,UICollectionViewDelegate,UICollect
         return CGSize(width: cellSize, height: cellSize)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
 
     /*
     // MARK: - Navigation

@@ -186,8 +186,9 @@ class selectViewController: UIViewController,FUIAuthDelegate {
     public func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         //認証に成功した場合
         if error == nil {
-            HUD.flash(.success, onView: tabBarController?.view ,delay: 0)
-            performSegue(withIdentifier: "CurrentUser", sender: nil)
+            HUD.flash(.labeledSuccess(title: "ログイン完了", subtitle: nil), onView: self.view ,delay: 1){ _ in
+                self.performSegue(withIdentifier: "CurrentUser", sender: nil)
+            }
         }
     }
     

@@ -8,13 +8,27 @@
 
 import UIKit
 import Pastel
+import FirebaseUI
+import FirebaseAuth
+import Firebase
+import PKHUD
 
 class myProfileViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //テスト用IDで広告表示
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
         
         //PastelViewの記述
         let pastelView = PastelView(frame: view.bounds)
@@ -34,6 +48,11 @@ class myProfileViewController: UIViewController {
                               UIColor(red: 58/255, green: 255/255, blue: 217/255, alpha: 1.0)])
 
         pastelView.startAnimation()
+        view.insertSubview(pastelView, at: 0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
 
@@ -46,5 +65,40 @@ class myProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func tappedSignOutButton(_ sender: Any) {
+        
+        //アクションシートを表示する
+        let aleartAction: UIAlertController = UIAlertController(title: nil, message: "サインアウトしてもよろしいでしょうか？", preferredStyle: UIAlertController.Style.alert)
+        //はい
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) -> Void in
+            print("OK")
+            
+           do {
+                try Auth.auth().signOut()
+                HUD.flash(.labeledSuccess(title: "サインアウト完了", subtitle: nil), onView: self.view, delay: 2) { _ in
+                // 画面遷移など行う
+                self.performSegue(withIdentifier: "firstPage", sender: nil)
+                }
+                
+            } catch let signOutError as NSError {
+                print("Error: \(signOutError)")
+            }
+        })
+        
+        //キャンセル
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:  { (action: UIAlertAction!) -> Void in
+            print("Cancel")
+        })
+        
+        //UIAleartControllerにActionを追加
+        aleartAction.addAction(defaultAction)
+        aleartAction.addAction(cancelAction)
+        
+        //alert表示
+        present(aleartAction, animated: true, completion: nil)
+        
+    }
 
+    
 }
