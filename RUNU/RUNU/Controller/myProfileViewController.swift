@@ -99,6 +99,41 @@ class myProfileViewController: UIViewController {
         present(aleartAction, animated: true, completion: nil)
         
     }
+    
+    @IBAction func tappedDeleteButton(_ sender: Any) {
+        //アクションシートを表示する
+        let aleartAction: UIAlertController = UIAlertController(title: nil, message: "退会してもよろしいでしょうか？", preferredStyle: UIAlertController.Style.alert)
+        //はい
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) -> Void in
+            print("OK")
+            
+           let user = Auth.auth().currentUser
+
+           user?.delete { error in
+             if let error = error {
+               // An error happened.
+                print(error)
+             } else {
+               // Account deleted.
+                
+             }
+           }
+        })
+        
+        //キャンセル
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:  { (action: UIAlertAction!) -> Void in
+            print("Cancel")
+        })
+        
+        //UIAleartControllerにActionを追加
+        aleartAction.addAction(defaultAction)
+        aleartAction.addAction(cancelAction)
+        
+        //alert表示
+        present(aleartAction, animated: true, completion: nil)
+        
+    }
+    
 
     
 }
