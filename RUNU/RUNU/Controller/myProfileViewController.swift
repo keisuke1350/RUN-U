@@ -109,15 +109,18 @@ class myProfileViewController: UIViewController {
             
            let user = Auth.auth().currentUser
 
-           user?.delete { error in
+           user?.delete() { error in
              if let error = error {
                // An error happened.
                 print(error)
              } else {
                // Account deleted.
-                
+                HUD.flash(.labeledSuccess(title: "退会完了", subtitle: nil), onView: self.view, delay: 2) { _ in
+                // 画面遷移など行う
+                self.performSegue(withIdentifier: "firstPage", sender: nil)
              }
            }
+        }
         })
         
         //キャンセル

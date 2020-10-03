@@ -29,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let viewController = storyboard.instantiateViewController(identifier: "viewVC")
             let navigationVC = UINavigationController(rootViewController: viewController)
             window.rootViewController = navigationVC
+            navigationVC.setNavigationBarHidden(true, animated: false)
             
             
         }else{
@@ -40,6 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let viewController = storyboard.instantiateViewController(identifier: "LoginVC")
             let navigationVC = UINavigationController(rootViewController: viewController)
             window.rootViewController = navigationVC
+            navigationVC.setNavigationBarHidden(true, animated: false)
 
         }
     }

@@ -10,52 +10,38 @@ import UIKit
 import HealthKit
 import Pastel
 import Alamofire
+import Charts
+import PKHUD
 
 class TabListViewController: UIViewController {
+    
+    @IBOutlet weak var barChartView: BarChartView!
+    
     
     let healthKitStore: HKHealthStore = HKHealthStore()
     var workouts: [HKWorkout] = []
     
+    //ワークアウト/ランニング距離/心拍数/歩数を読み出しに設定
     let readDataTypes: Set<HKObjectType> =
         [
             HKWorkoutType.workoutType(),
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!,
+            HKObjectType.quantityType(forIdentifier: .heartRate)!,
+            HKSampleType.quantityType(forIdentifier: .stepCount)!
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        //ユーザーに許可画面を出す
         self.healthKitStore.requestAuthorization(toShare: nil, read: readDataTypes) {
             (success, error) -> Void in
             if success == false {
-                print("can't get permittion")
+                print("can't get permission")
             } else {
-                self.readRunningWorkOuts({ (results, error) -> Void in
-                    if( error != nil ) {
-                        print("Error reading workouts: \(String(describing: error?.localizedDescription))")
-                        return;
-                    }
+                print("get permission")
 
-                    self.workouts = results as! [HKWorkout]
-                    DispatchQueue.main.async(execute: { () -> Void in
-                        for workout in self.workouts {
-                            // 以下のように変更する
-                            let km_double = workout.totalDistance!.doubleValue(for: HKUnit.meter()) / 1000
-                            let averagespeed = self.calcAverageSpeedForMeter(interval: workout.duration, distance: km_double)
-                            self.postToSlack(
-                                date: String(format: "%@ ~ %@", workout.startDate as CVarArg, workout.endDate as CVarArg),
-                                distance: String(format: "%@", workout.totalDistance ?? "no data"),
-                                time: String(format: "%@", self.stringFromTimeInterval(interval: workout.duration)),
-                                pace: String(format: "%@ / km", averagespeed),
-                                energy: String(format: "%@", workout.totalEnergyBurned ?? "no data")
-                            )
-                            break
-                            // ここまで
-                        }
-                    });
-                })
             }
         }
         
@@ -211,6 +197,56 @@ class TabListViewController: UIViewController {
     }
     
     // 追加
+    
+    
+    @IBAction func postToSlackButton(_ sender: Any) {
+        self.readRunningWorkOuts({ (results, error) -> Void in
+            if( error != nil ) {
+                print("Error reading workouts: \(String(describing: error?.localizedDescription))")
+                return;
+            }
+            DispatchQueue.main.async {
+            //アクションシートを表示する
+            let aleartAction: UIAlertController = UIAlertController(title: nil, message: "slackへ送信してもよろしいでしょうか？", preferredStyle: UIAlertController.Style.alert)
+            //はい
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) -> Void in
+                print("OK")
+            //slackへアップロード
+            self.workouts = results as! [HKWorkout]
+            DispatchQueue.main.async(execute: { () -> Void in
+                for workout in self.workouts {
+                    // 以下のように変更する
+                    let km_double = workout.totalDistance!.doubleValue(for: HKUnit.meter()) / 1000
+                    let averagespeed = self.calcAverageSpeedForMeter(interval: workout.duration, distance: km_double)
+                    self.postToSlack(
+                        date: String(format: "%@ ~ %@", workout.startDate as CVarArg, workout.endDate as CVarArg),
+                        distance: String(format: "%@", workout.totalDistance ?? "no data"),
+                        time: String(format: "%@", self.stringFromTimeInterval(interval: workout.duration)),
+                        pace: String(format: "%@ / km", averagespeed),
+                        energy: String(format: "%@", workout.totalEnergyBurned ?? "no data")
+                    )
+                    HUD.flash(.labeledSuccess(title: "送信完了", subtitle: nil), onView: self.view, delay: 2) { _ in
+                    }
+                    break
+                    // ここまで
+                }
+            });
+        })
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:  { (action: UIAlertAction!) -> Void in
+                print("Cancel")
+            })
+            //UIAleartControllerにActionを追加
+            aleartAction.addAction(defaultAction)
+            aleartAction.addAction(cancelAction)
+            
+            //alert表示
+            self.present(aleartAction, animated: true, completion: nil)
+            
+        }
+        })
+        
+    }
+    
     // AlamofireでSlackへJSONをPOSTする
     func postToSlack(date: String, distance: String, time: String, pace: String, energy: String) {
          let parameters: Parameters = [
@@ -252,7 +288,7 @@ class TabListViewController: UIViewController {
              "Content-Type": "application/json"
          ]
 
-        AF.request("[https://hooks.slack.com/services/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]",
+        AF.request("https://hooks.slack.com/services/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",
                               method: .post,
                               parameters: parameters,
                               encoding: JSONEncoding.default,

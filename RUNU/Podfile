@@ -25,5 +25,8 @@ target 'RUNU' do
   pod 'FSCalendar'
   pod 'Pastel'
   pod 'XLPagerTabStrip'
+  pod 'CalculateCalendarLogic'
+  pod 'RealmSwift'
+  pod 'Charts'
 
 end

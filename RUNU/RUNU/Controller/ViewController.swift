@@ -19,7 +19,7 @@ class ViewController: UIViewController,UIScrollViewDelegate {
     
     //チュートリアルで表示させるテキストをリストで記載
     var onboardStringArray = ["RUN Uへようこそ！",
-                              "世界中の人々とRUNで繋がれます",
+                              "あなたのRUNで社会に貢献しましょう",
                               "あなたはスマホを持って走るだけ",
                               "走った距離に応じてポイントが付きます",
                               "さぁ　はじめよう！",]

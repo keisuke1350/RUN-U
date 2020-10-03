@@ -20,6 +20,7 @@ class selectViewController: UIViewController,FUIAuthDelegate {
     fileprivate var currentNonce: String?
     
     @IBOutlet weak var AuthButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     
     var authUI: FUIAuth {get { return FUIAuth.defaultAuthUI()!}}
     //認証に使用するプロバイダの選択
@@ -81,6 +82,14 @@ class selectViewController: UIViewController,FUIAuthDelegate {
             
         }
         
+        //button角丸
+        registerButton.layer.cornerRadius = 10.0
+        registerButton.layer.borderColor = UIColor.white.cgColor
+        registerButton.layer.borderWidth = 2.0
+        AuthButton.layer.cornerRadius = 10.0
+        AuthButton.layer.borderColor = UIColor.white.cgColor
+        AuthButton.layer.borderWidth = 2.0
+        
 //        if self.isLogin() == true {
 //
 //            //ログイン状態の時はスキップ
@@ -94,7 +103,7 @@ class selectViewController: UIViewController,FUIAuthDelegate {
     }
     
     
-    //loginぶButtonを押した際の挙動を設定
+    //loginButtonを押した際の挙動を設定
     @available(iOS 13.0, *)
     @objc func handleTap(_sender: ASAuthorizationAppleIDButton) {
         //ランダムの文字列を生成

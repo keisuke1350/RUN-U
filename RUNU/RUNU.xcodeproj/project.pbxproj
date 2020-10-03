@@ -13,6 +13,10 @@
 		3227C87424D1BD2500D82F7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3227C87224D1BD2500D82F7D /* Main.storyboard */; };
 		3227C87624D1BD2600D82F7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3227C87524D1BD2600D82F7D /* Assets.xcassets */; };
 		3227C87924D1BD2600D82F7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3227C87724D1BD2600D82F7D /* LaunchScreen.storyboard */; };
+		322CFBDF251CE87700FA150A /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CFBDE251CE87700FA150A /* EventModel.swift */; };
+		322CFC18251EFF0800FA150A /* EventCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CFC17251EFF0700FA150A /* EventCreateViewController.swift */; };
+		322CFC23251FCCB000FA150A /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CFC22251FCCAF00FA150A /* SimpleAlert.swift */; };
+		322CFC262520D9DF00FA150A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322CFC252520D9DE00FA150A /* EventDetailViewController.swift */; };
 		323E8B2D24F44AD9005A5877 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323E8B2B24F44AD9005A5877 /* CollectionViewCell.swift */; };
 		323E8B2E24F44AD9005A5877 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 323E8B2C24F44AD9005A5877 /* CollectionViewCell.xib */; };
 		324DE4DC24D44441007576C3 /* selectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DE4DB24D44441007576C3 /* selectViewController.swift */; };
@@ -28,6 +32,12 @@
 		324FFAEC24DE4F6B00A15613 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FFAEB24DE4F6B00A15613 /* CalenderViewController.swift */; };
 		328BA11524EF087100AA32AF /* myProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328BA11424EF087100AA32AF /* myProfileViewController.swift */; };
 		328BA11724F16D4D00AA32AF /* uActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328BA11624F16D4D00AA32AF /* uActionViewController.swift */; };
+		32A3B2E8252612AF0058398A /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A3B2E7252612AF0058398A /* HealthKitManager.swift */; };
+		32A5D28225282B2C0019BD32 /* YoutubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5D28125282B2B0019BD32 /* YoutubeData.swift */; };
+		32A5D28525282C730019BD32 /* YoutubeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5D28425282C730019BD32 /* YoutubeBaseViewController.swift */; };
+		32A5D2BE2528306A0019BD32 /* YPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5D2BD2528306A0019BD32 /* YPage1ViewController.swift */; };
+		32A5D2C5252831750019BD32 /* YWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5D2C4252831750019BD32 /* YWebViewController.swift */; };
+		32A5D2C8252831BE0019BD32 /* YPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5D2C7252831BE0019BD32 /* YPage2ViewController.swift */; };
 		32C20049250363660040826C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C20048250363660040826C /* HealthKit.framework */; };
 		32C2004B250363A10040826C /* HealthKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C2004A250363A10040826C /* HealthKitUI.framework */; };
 		CFB4E3932ADE8A72755E1AB5 /* Pods_RUNU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17828378F036BD1ACE55188F /* Pods_RUNU.framework */; };
@@ -44,6 +54,10 @@
 		3227C87524D1BD2600D82F7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3227C87824D1BD2600D82F7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3227C87A24D1BD2600D82F7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		322CFBDE251CE87700FA150A /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		322CFC17251EFF0700FA150A /* EventCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreateViewController.swift; sourceTree = "<group>"; };
+		322CFC22251FCCAF00FA150A /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
+		322CFC252520D9DE00FA150A /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		323E8B2B24F44AD9005A5877 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		323E8B2C24F44AD9005A5877 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		323E8B2F24F829E5005A5877 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -62,6 +76,12 @@
 		328BA11324EC7D3100AA32AF /* RUNU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RUNU.entitlements; sourceTree = "<group>"; };
 		328BA11424EF087100AA32AF /* myProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myProfileViewController.swift; sourceTree = "<group>"; };
 		328BA11624F16D4D00AA32AF /* uActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uActionViewController.swift; sourceTree = "<group>"; };
+		32A3B2E7252612AF0058398A /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		32A5D28125282B2B0019BD32 /* YoutubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeData.swift; sourceTree = "<group>"; };
+		32A5D28425282C730019BD32 /* YoutubeBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeBaseViewController.swift; sourceTree = "<group>"; };
+		32A5D2BD2528306A0019BD32 /* YPage1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPage1ViewController.swift; sourceTree = "<group>"; };
+		32A5D2C4252831750019BD32 /* YWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YWebViewController.swift; sourceTree = "<group>"; };
+		32A5D2C7252831BE0019BD32 /* YPage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPage2ViewController.swift; sourceTree = "<group>"; };
 		32C20048250363660040826C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		32C2004A250363A10040826C /* HealthKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKitUI.framework; path = System/Library/Frameworks/HealthKitUI.framework; sourceTree = SDKROOT; };
 		BB6C2A4E4F4502A6AC23F4EE /* Pods-RUNU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RUNU.debug.xcconfig"; path = "Target Support Files/Pods-RUNU/Pods-RUNU.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +159,12 @@
 				328BA11424EF087100AA32AF /* myProfileViewController.swift */,
 				328BA11624F16D4D00AA32AF /* uActionViewController.swift */,
 				323E8B2B24F44AD9005A5877 /* CollectionViewCell.swift */,
+				322CFC17251EFF0700FA150A /* EventCreateViewController.swift */,
+				322CFC252520D9DE00FA150A /* EventDetailViewController.swift */,
+				32A5D28425282C730019BD32 /* YoutubeBaseViewController.swift */,
+				32A5D2BD2528306A0019BD32 /* YPage1ViewController.swift */,
+				32A5D2C7252831BE0019BD32 /* YPage2ViewController.swift */,
+				32A5D2C4252831750019BD32 /* YWebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -148,6 +174,10 @@
 			children = (
 				3227C86C24D1BD2500D82F7D /* AppDelegate.swift */,
 				3227C86E24D1BD2500D82F7D /* SceneDelegate.swift */,
+				322CFBDE251CE87700FA150A /* EventModel.swift */,
+				322CFC22251FCCAF00FA150A /* SimpleAlert.swift */,
+				32A3B2E7252612AF0058398A /* HealthKitManager.swift */,
+				32A5D28125282B2B0019BD32 /* YoutubeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,14 +346,24 @@
 			files = (
 				323E8B2D24F44AD9005A5877 /* CollectionViewCell.swift in Sources */,
 				328BA11724F16D4D00AA32AF /* uActionViewController.swift in Sources */,
+				322CFC23251FCCB000FA150A /* SimpleAlert.swift in Sources */,
+				32A5D28225282B2C0019BD32 /* YoutubeData.swift in Sources */,
+				32A5D2C8252831BE0019BD32 /* YPage2ViewController.swift in Sources */,
 				324DE4DC24D44441007576C3 /* selectViewController.swift in Sources */,
 				3227C87124D1BD2500D82F7D /* ViewController.swift in Sources */,
 				324FFAEA24D6B00A00A15613 /* TabListViewController.swift in Sources */,
+				32A5D2BE2528306A0019BD32 /* YPage1ViewController.swift in Sources */,
 				3227C86D24D1BD2500D82F7D /* AppDelegate.swift in Sources */,
 				324FFAEC24DE4F6B00A15613 /* CalenderViewController.swift in Sources */,
+				32A5D2C5252831750019BD32 /* YWebViewController.swift in Sources */,
+				32A3B2E8252612AF0058398A /* HealthKitManager.swift in Sources */,
+				322CFBDF251CE87700FA150A /* EventModel.swift in Sources */,
 				324DE4E824D44980007576C3 /* registerViewController.swift in Sources */,
 				328BA11524EF087100AA32AF /* myProfileViewController.swift in Sources */,
 				3227C86F24D1BD2500D82F7D /* SceneDelegate.swift in Sources */,
+				322CFC262520D9DF00FA150A /* EventDetailViewController.swift in Sources */,
+				32A5D28525282C730019BD32 /* YoutubeBaseViewController.swift in Sources */,
+				322CFC18251EFF0800FA150A /* EventCreateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.comAutolayout.RUNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -503,7 +543,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.comAutolayout.RUNU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

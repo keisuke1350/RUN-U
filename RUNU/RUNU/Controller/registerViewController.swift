@@ -16,7 +16,7 @@ import FirebaseAuth
 import TextFieldEffects
 import PKHUD
 
-class registerViewController: UIViewController {
+class registerViewController: UIViewController{
     
     
     @IBOutlet weak var profileImageButton: UIButton!
@@ -25,6 +25,7 @@ class registerViewController: UIViewController {
     @IBOutlet weak var usernameTextField: KaedeTextField!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var alreadyHaveAcountButton: UIButton!
+    @IBOutlet weak var backToHomeButton: UIButton!
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -60,7 +61,7 @@ class registerViewController: UIViewController {
         //はじめはregisterbuttonを無効化しておく
         registerButton.isEnabled = false
         registerButton.backgroundColor = .init(red:255, green:0,blue:0,alpha:1)
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,11 +74,15 @@ class registerViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
-    
     //キーボード以外の場所を触れてキーボードを閉じる設定
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //キーボード入力設定
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @objc private func tappedRegisterButton () {
@@ -254,6 +259,8 @@ extension registerViewController:UIImagePickerControllerDelegate,UINavigationCon
         }
         return true
     }
+    
+    
     
     
     
