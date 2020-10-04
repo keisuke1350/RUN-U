@@ -14,6 +14,7 @@ class ViewController: UIViewController,UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
     //lottieアニメーションファイルをJSON形式でダウンロードし、ファイル名をリストで記載
     var onboardArray = ["runu-1","runu-2","runu-3","runu-4","runu-5"]
     

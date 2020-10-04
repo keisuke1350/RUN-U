@@ -109,7 +109,11 @@ class registerViewController: UIViewController{
                 guard let urlString = url?.absoluteString else { return }
                 print("urlString:", urlString)
                 self.createUserToFirestore(profileImageUrl: urlString)
-                self.performSegue(withIdentifier: "next", sender: nil)
+                HUD.show(.progress, onView: self.view)
+                HUD.flash(.labeledSuccess(title: "新規登録完了", subtitle: "RUN Uへようこそ"), onView: self.view, delay: 1) { _ in
+                    self.performSegue(withIdentifier: "next", sender: nil)
+                }
+                
             }
         }
         

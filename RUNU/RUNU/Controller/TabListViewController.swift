@@ -15,8 +15,11 @@ import PKHUD
 
 class TabListViewController: UIViewController {
     
-    @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var pieChartView: PieChartView!
     
+    let months = ["Jan","Feb","Mar","Apr","May","Jun",]
+    let unitsSold = [10.0,4.0,6.0,3.0,12.0,16.0]
     
     let healthKitStore: HKHealthStore = HKHealthStore()
     var workouts: [HKWorkout] = []
@@ -32,6 +35,10 @@ class TabListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //グラフ表示
+        setLineGraph()
+        setPieChart()
 
         // Do any additional setup after loading the view.
         //ユーザーに許可画面を出す
@@ -196,9 +203,49 @@ class TabListViewController: UIViewController {
         return String(format: "%dh %0.2dm %0.2ds",hours,minutes,seconds)
     }
     
-    // 追加
+    func setLineGraph(){
+        var entry = [ChartDataEntry]()
+        
+        for (i,d) in unitsSold.enumerated() {
+            entry.append(ChartDataEntry(x: Double(i),y: d))
+        }
+        
+        let dataset = LineChartDataSet(entries: entry,label: "Units Sold")
+        
+        lineChartView.data = LineChartData(dataSet: dataset)
+        lineChartView.chartDescription?.text = "Item Sold Chart"
+        
+    }
+    
+    func setPieChart(){
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<months.count {
+            dataEntries.append(PieChartDataEntry(value: unitsSold[i], label: months[i],data: unitsSold[i]))
+        }
+        
+        let pieChartsDataSet = PieChartDataSet(entries: dataEntries ,label: "Units Sold")
+        
+        pieChartView.data = PieChartData(dataSet: pieChartsDataSet)
+        
+        var colors: [UIColor] = []
+        
+        for _ in 0..<months.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255),blue: CGFloat(blue/255),alpha: 1)
+            
+            colors.append(color)
+        }
+        
+        pieChartsDataSet.colors = colors
+        
+    }
     
     
+    // 追加(slackへアップロード
     @IBAction func postToSlackButton(_ sender: Any) {
         self.readRunningWorkOuts({ (results, error) -> Void in
             if( error != nil ) {
