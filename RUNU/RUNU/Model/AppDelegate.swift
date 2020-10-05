@@ -17,6 +17,8 @@ import GoogleMobileAds
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var message:String?
+    
     
     override init() {
         super.init()

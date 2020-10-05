@@ -17,11 +17,11 @@ class EventCreateViewController: UIViewController,UITextFieldDelegate,UITextView
     @IBOutlet weak var memoTextField: UITextView!
     @IBOutlet weak var startTextField: UITextField!
     @IBOutlet weak var endTextField: UITextField!
-    
-    @IBOutlet weak var EventDate: UITextField!
+    @IBOutlet weak var date: UILabel!
     @IBOutlet weak var bannerView: GADBannerView!
     
     var datepicker: UIDatePicker = UIDatePicker()
+    
     
     
     
@@ -71,6 +71,9 @@ class EventCreateViewController: UIViewController,UITextFieldDelegate,UITextView
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
+        //値受け取り
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        date.text = appDelegate.message
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -88,18 +91,45 @@ class EventCreateViewController: UIViewController,UITextFieldDelegate,UITextView
         return true
     }
     
+    func stringFromDate(date: Date, format: String) -> String {
+            let formatter: DateFormatter = DateFormatter()
+            formatter.calendar = Calendar(identifier: .gregorian)
+            formatter.dateFormat = format
+            return formatter.string(from: date)
+        }
+    
     
     @IBAction func doneButton(_ sender: Any) {
+//        //パターン1
+//        do {
+//            let realm = try Realm()
+//            let eventModel = EventModel()
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "yyyy-MM-dd"
+//            eventModel.title = titleTexttField.text ?? ""
+//            eventModel.date = dateFormatter.string(from: Date())
+//
+//
+//        }
+
+        
+        
+        //パターン2
         if titleTexttField.text != "" {
             if memoTextField.text != "" {
-                let newEvent = EventModel.create()
-                newEvent.title = titleTexttField.text!
-                newEvent.memo = memoTextField.text!
-                let today = EventModel.changeDateType(date: Date())
-                newEvent.date = today
-                newEvent.save()
-                self.dismiss(animated: true, completion: nil)
-                
+                createEvent {
+                    self.navigationController?.popViewController(animated: true)
+                }
+//                let realm = try! Realm()
+//                let eventModel = EventModel()
+//                let newEvent = EventModel.create()
+//                newEvent.title = titleTexttField.text!
+//                newEvent.memo = memoTextField.text!
+//                let today = EventModel.changeDateType(date: Date())
+//                newEvent.date = today
+////                date.text = "\(today)"
+//                newEvent.save()
+
             }else{
                 SimpleAlert.showAlert(viewController: self, title: "メモなし", message: "内容を書いてください", buttonTitle: "OK")
             }
@@ -108,8 +138,41 @@ class EventCreateViewController: UIViewController,UITextFieldDelegate,UITextView
         }
     }
     
+    func createEvent(success: @escaping() -> Void) {
+        do {
+            let realm = try Realm()
+            let eventModel = EventModel()
+            eventModel.title = titleTexttField.text ?? ""
+            eventModel.memo = memoTextField.text
+            eventModel.date = EventModel.changeDateType(date: Date())
+            eventModel.start_time = startTextField.text ?? ""
+            eventModel.end_time = endTextField.text ?? ""
+            eventModel.id = lastId()
+            
+            try realm.write{
+                realm.add(eventModel)
+                success()
+            }
+        } catch {
+            print("create todo error")
+        }
+        
+        
+    }
+    
+    func lastId() -> Int {
+        let realm = try! Realm()
+        if let object = realm.objects(EventModel.self).last {
+            return object.id + 1
+            
+        } else {
+            return 1
+        }
+    }
+
+    
     @IBAction func backButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 //    func createEvent(success: @escaping() -> Void) {

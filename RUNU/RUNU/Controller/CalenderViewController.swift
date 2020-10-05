@@ -60,7 +60,7 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         self.EventModelTableView.dataSource = self
         
         //日付表示設定
-        Date.text = "日付表示"
+        Date.text = "カレンダーをタップ"
         Date.font = UIFont.systemFont(ofSize: 20.0)
         Date.textColor = .black
         view.addSubview(Date)
@@ -201,6 +201,7 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         let month = tmpDate.component(.month, from: date)
         let day = tmpDate.component(.day, from: date)
         Date.text = "\(year)年\(month)月\(day)日"
+        view.addSubview(Date)
         
         //日付選択時に呼ばれるメソッド
         EventModelArray = EventModel.search(date: date)
@@ -225,7 +226,10 @@ class CalenderViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     //nextEventへの画面遷移
     
     @IBAction func createEventButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "nextEvent", sender: nil)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.message = Date.text
+        let nextVC = self.storyboard?.instantiateViewController(identifier: "Next") as! EventCreateViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func configureTableView () {

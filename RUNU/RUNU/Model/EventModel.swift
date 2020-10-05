@@ -18,22 +18,30 @@ class EventModel: Object {
     //EventModelのプロパティを定義
     
 
-    @objc dynamic private var id = 0
+    @objc dynamic var id = 0
     @objc dynamic var title = ""
     @objc dynamic var memo = ""
     @objc dynamic var date = ""
     @objc dynamic var start_time = ""
     @objc dynamic var end_time = ""
     
+    
+    
     //dateをprimary Keyに設定　（重複しないキー）
     override static func primaryKey() -> String? {
         return "id"
+        
     }
     
     //新規作成
     static func create() -> EventModel {
         let eventModel = EventModel()
         eventModel.id = lastId()
+        eventModel.title = ""
+        eventModel.memo = ""
+        eventModel.date = ""
+        eventModel.start_time = ""
+        eventModel.end_time = ""
         return eventModel
     }
     
@@ -78,7 +86,7 @@ class EventModel: Object {
     //日付のフォーマット指定
     static func changeDateType(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM月dd日"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         let text = dateFormatter.string(from: date)
         return text
         
