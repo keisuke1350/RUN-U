@@ -28,5 +28,6 @@ target 'RUNU' do
   pod 'CalculateCalendarLogic'
   pod 'RealmSwift'
   pod 'Charts'
+  pod 'SwiftyStoreKit'
 
 end

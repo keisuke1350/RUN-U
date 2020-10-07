@@ -12,6 +12,7 @@ import Pastel
 class uActionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var sdgsCollectionView: UICollectionView!
+    @IBOutlet weak var UPoints: UILabel!
     
     private let photos = ["sdgs", "sdgs01", "sdgs02", "sdgs03", "sdgs04", "sdgs05","sdgs06", "sdgs07", "sdgs08", "sdgs09", "sdgs10", "sdgs11", "sdgs12", "sdgs13", "sdgs14", "sdgs15", "sdgs16", "sdgs17"]
     
@@ -39,6 +40,9 @@ class uActionViewController: UIViewController,UICollectionViewDelegate,UICollect
 
         pastelView.startAnimation()
         view.insertSubview(pastelView, at: 0)
+        view.sendSubviewToBack(pastelView)
+        
+        view.bringSubviewToFront(sdgsCollectionView)
         
 //
         //collectionViewの実装
@@ -50,6 +54,7 @@ class uActionViewController: UIViewController,UICollectionViewDelegate,UICollect
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         sdgsCollectionView.collectionViewLayout = layout
+        
 
     }
     
@@ -60,9 +65,9 @@ class uActionViewController: UIViewController,UICollectionViewDelegate,UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = sdgsCollectionView.dequeueReusableCell(withReuseIdentifier: "sdgsCollectionCell1", for: indexPath)
-        let photoImageView = cell.contentView.viewWithTag(1) as! UIImageView
+        let photoImageView = cell.contentView.viewWithTag(1) as! UIButton
         let photoImage = UIImage(named: photos[indexPath.row])
-        photoImageView.image = photoImage
+        photoImageView.setImage(photoImage, for: .normal)
         return cell
         
     }
@@ -75,7 +80,62 @@ class uActionViewController: UIViewController,UICollectionViewDelegate,UICollect
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
+        super.viewWillAppear(animated)
+        
+        if let buy = UserDefaults.standard.object(forKey: "buy"){
+            //何かデータが入っていたら
+            let count:Int = buy as! Int
+            UPoints.text = String(count)
+            
+        } else {
+            //何もキー値に入っていない場合
+            UserDefaults.standard.set(Int(UPoints.text!),forKey: "buy")
+            
+        }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //[indexPath.row]から画像名を探しUIImageを設定
+  
+        print(indexPath.row)
+        if indexPath.row == 11 {
+            confirmAlert()
+            
+        }
+        
+        
+    }
+    
+    func confirmAlert(){
+        let alert: UIAlertController = UIAlertController(title: "確認", message: "120ポイントを消費し、寄付しますか？", preferredStyle: .alert)
+        let okAction:UIAlertAction = UIAlertAction(title: "OK", style: .default) { (alert) in
+            
+            if Int(self.UPoints.text!)! < 120 {
+                print("残コインが不足しています")
+                
+                
+            } else {
+                var coinCount = Int()
+                coinCount = Int(self.UPoints.text!)! - 120
+                UserDefaults.standard.set(coinCount, forKey: "buy")
+                self.UPoints.text = String(coinCount)
+            }
+            
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "また後で", style: .cancel) { (alert) in
+            //何もしない
+        }
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+        
+    }
+    
+    
+
     
 
     /*

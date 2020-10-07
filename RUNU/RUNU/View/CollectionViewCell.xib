@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="sdgsCollectionCell1" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="RUNU" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" tag="1" contentMode="center" reuseIdentifier="sdgsCollectionCell1" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="RUNU" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WTO-yQ-fCP">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sg0-YM-SOH">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                    </imageView>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qz6-fb-6AI">
+                                <rect key="frame" x="8" y="8" width="34" height="34"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Qz6-fb-6AI" secondAttribute="bottom" constant="8" id="08k-kZ-gaL"/>
+                            <constraint firstItem="Qz6-fb-6AI" firstAttribute="leading" secondItem="sg0-YM-SOH" secondAttribute="leading" constant="8" id="87c-7r-Eix"/>
+                            <constraint firstAttribute="trailing" secondItem="Qz6-fb-6AI" secondAttribute="trailing" constant="8" id="f0U-BL-GBY"/>
+                            <constraint firstItem="Qz6-fb-6AI" firstAttribute="top" secondItem="sg0-YM-SOH" secondAttribute="top" constant="8" id="gDI-mU-166"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="WTO-yQ-fCP" secondAttribute="trailing" id="PTr-Cf-GQe"/>
-                <constraint firstAttribute="bottom" secondItem="WTO-yQ-fCP" secondAttribute="bottom" id="kbe-5w-bzj"/>
-                <constraint firstItem="WTO-yQ-fCP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oXV-Lf-6Yy"/>
-                <constraint firstItem="WTO-yQ-fCP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="syJ-ml-l5Y"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="sg0-YM-SOH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2ua-Eg-JHX"/>
+                <constraint firstAttribute="bottom" secondItem="sg0-YM-SOH" secondAttribute="bottom" id="CcR-a9-ghi"/>
+                <constraint firstAttribute="trailing" secondItem="sg0-YM-SOH" secondAttribute="trailing" id="pyY-og-QP1"/>
+                <constraint firstItem="sg0-YM-SOH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="rd7-Sz-Xni"/>
+            </constraints>
             <connections>
-                <outlet property="sdgsImages" destination="WTO-yQ-fCP" id="7RA-Aq-33l"/>
+                <outlet property="sdgsButton" destination="Qz6-fb-6AI" id="Dwr-kY-vn8"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="120.53571428571428"/>
         </collectionViewCell>

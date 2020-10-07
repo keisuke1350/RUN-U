@@ -10,11 +10,14 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var sdgsImages: UIImageView!
+    @IBOutlet weak var sdgsButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
 
+    
+    
 }

@@ -425,6 +425,7 @@ PODS:
   - SDWebImage/Core (5.8.4)
   - SegementSlide (3.0.0)
   - SwiftyJSON (5.0.0)
+  - SwiftyStoreKit (0.16.1)
   - TextFieldEffects (1.6.0)
   - XLPagerTabStrip (9.0.0)
 
@@ -449,6 +450,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - SegementSlide
   - SwiftyJSON
+  - SwiftyStoreKit
   - TextFieldEffects
   - XLPagerTabStrip
 
@@ -494,6 +496,7 @@ SPEC REPOS:
     - SDWebImage
     - SegementSlide
     - SwiftyJSON
+    - SwiftyStoreKit
     - TextFieldEffects
     - XLPagerTabStrip
 
@@ -538,9 +541,10 @@ SPEC CHECKSUMS:
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SegementSlide: ad0a6de50cbcc071da9ec8b0f403a4e75b20ba9a
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 71be0d6e31e86630e41cb8f0e911e5a7e59069a9
+PODFILE CHECKSUM: 6c9cc200aa21b405ab0280873f0213ddbf6b559c
 
 COCOAPODS: 1.9.3

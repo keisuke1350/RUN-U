@@ -40,6 +40,8 @@
 		32A5D2C8252831BE0019BD32 /* YPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5D2C7252831BE0019BD32 /* YPage2ViewController.swift */; };
 		32C20049250363660040826C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C20048250363660040826C /* HealthKit.framework */; };
 		32C2004B250363A10040826C /* HealthKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C2004A250363A10040826C /* HealthKitUI.framework */; };
+		32C8C294252B7474004876B0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C8C293252B7474004876B0 /* StoreKit.framework */; };
+		32C8C297252C10C2004876B0 /* RUNUPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8C296252C10C1004876B0 /* RUNUPoints.swift */; };
 		CFB4E3932ADE8A72755E1AB5 /* Pods_RUNU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17828378F036BD1ACE55188F /* Pods_RUNU.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		32A5D2C7252831BE0019BD32 /* YPage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPage2ViewController.swift; sourceTree = "<group>"; };
 		32C20048250363660040826C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		32C2004A250363A10040826C /* HealthKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKitUI.framework; path = System/Library/Frameworks/HealthKitUI.framework; sourceTree = SDKROOT; };
+		32C8C293252B7474004876B0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		32C8C296252C10C1004876B0 /* RUNUPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUNUPoints.swift; sourceTree = "<group>"; };
 		BB6C2A4E4F4502A6AC23F4EE /* Pods-RUNU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RUNU.debug.xcconfig"; path = "Target Support Files/Pods-RUNU/Pods-RUNU.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +99,7 @@
 				CFB4E3932ADE8A72755E1AB5 /* Pods_RUNU.framework in Frameworks */,
 				32C20049250363660040826C /* HealthKit.framework in Frameworks */,
 				32C2004B250363A10040826C /* HealthKitUI.framework in Frameworks */,
+				32C8C294252B7474004876B0 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +183,7 @@
 				322CFC22251FCCAF00FA150A /* SimpleAlert.swift */,
 				32A3B2E7252612AF0058398A /* HealthKitManager.swift */,
 				32A5D28125282B2B0019BD32 /* YoutubeData.swift */,
+				32C8C296252C10C1004876B0 /* RUNUPoints.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 		CEAAC3AD439F2FEDDE1DDC2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32C8C293252B7474004876B0 /* StoreKit.framework */,
 				32C2004A250363A10040826C /* HealthKitUI.framework */,
 				32C20048250363660040826C /* HealthKit.framework */,
 				17828378F036BD1ACE55188F /* Pods_RUNU.framework */,
@@ -359,6 +366,7 @@
 				32A3B2E8252612AF0058398A /* HealthKitManager.swift in Sources */,
 				322CFBDF251CE87700FA150A /* EventModel.swift in Sources */,
 				324DE4E824D44980007576C3 /* registerViewController.swift in Sources */,
+				32C8C297252C10C2004876B0 /* RUNUPoints.swift in Sources */,
 				328BA11524EF087100AA32AF /* myProfileViewController.swift in Sources */,
 				3227C86F24D1BD2500D82F7D /* SceneDelegate.swift in Sources */,
 				322CFC262520D9DF00FA150A /* EventDetailViewController.swift in Sources */,
