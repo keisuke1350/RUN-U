@@ -1199,7 +1199,6 @@
         <!--Event Detail View Controller-->
         <scene sceneID="cVx-p5-XSo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eBX-lD-TvP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="cse-aC-qrj" customClass="EventDetailViewController" customModule="RUNU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Soq-8i-Czn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1240,6 +1239,7 @@
                         <outlet property="eventTitle" destination="4aW-Yu-AjV" id="pI1-aW-1Z6"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBX-lD-TvP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6568.8000000000002" y="1862.5187406296852"/>
         </scene>
@@ -1265,13 +1265,13 @@
     </scenes>
     <designables>
         <designable name="Tcf-JC-xA2">
-            <size key="intrinsicContentSize" width="160" height="18.5"/>
+            <size key="intrinsicContentSize" width="100" height="18.5"/>
         </designable>
         <designable name="YIT-e7-pMI">
-            <size key="intrinsicContentSize" width="160" height="18.5"/>
+            <size key="intrinsicContentSize" width="100" height="18.5"/>
         </designable>
         <designable name="pwk-yv-Rbm">
-            <size key="intrinsicContentSize" width="131.5" height="18.5"/>
+            <size key="intrinsicContentSize" width="71.5" height="18.5"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
