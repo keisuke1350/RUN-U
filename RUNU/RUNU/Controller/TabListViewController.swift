@@ -17,9 +17,13 @@ class TabListViewController: UIViewController {
     
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var horizontalBarChart: HorizontalBarChartView!
     
-    let months = ["Jan","Feb","Mar","Apr","May","Jun",]
-    let unitsSold = [10.0,4.0,6.0,3.0,12.0,16.0]
+    let days = ["10月1日","10月2日","10月4日","10月5日","10月6日","10月7日",]
+    let unitsKm = [10.0,4.0,6.0,3.0,12.0,4.0]
+    
+    let piechartsData = ["Yes","No"]
+    let yesNocount = [6.0,2.0]
     
     let healthKitStore: HKHealthStore = HKHealthStore()
     var workouts: [HKWorkout] = []
@@ -50,6 +54,14 @@ class TabListViewController: UIViewController {
                 print("get permission")
 
             }
+        }
+        
+        //歩数を取得
+        getTodaysStep{ (result) in
+            DispatchQueue.main.async {
+                self.horizontalBarChatUpdate(getStepsValues: result)
+            }
+            
         }
         
         //PastelViewの記述
@@ -156,6 +168,10 @@ class TabListViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -206,31 +222,31 @@ class TabListViewController: UIViewController {
     func setLineGraph(){
         var entry = [ChartDataEntry]()
         
-        for (i,d) in unitsSold.enumerated() {
+        for (i,d) in unitsKm.enumerated() {
             entry.append(ChartDataEntry(x: Double(i),y: d))
         }
         
-        let dataset = LineChartDataSet(entries: entry,label: "Units Sold")
+        let dataset = LineChartDataSet(entries: entry,label: "走行距離計測")
         
         lineChartView.data = LineChartData(dataSet: dataset)
-        lineChartView.chartDescription?.text = "Item Sold Chart"
+        lineChartView.chartDescription?.text = "走行距離チャート/km"
         
     }
     
     func setPieChart(){
         var dataEntries: [ChartDataEntry] = []
         
-        for i in 0..<months.count {
-            dataEntries.append(PieChartDataEntry(value: unitsSold[i], label: months[i],data: unitsSold[i]))
+        for i in 0..<piechartsData.count {
+            dataEntries.append(PieChartDataEntry(value: yesNocount[i], label: piechartsData[i],data: yesNocount[i]))
         }
         
-        let pieChartsDataSet = PieChartDataSet(entries: dataEntries ,label: "Units Sold")
+        let pieChartsDataSet = PieChartDataSet(entries: dataEntries ,label: "運動継続率確認")
         
         pieChartView.data = PieChartData(dataSet: pieChartsDataSet)
         
         var colors: [UIColor] = []
         
-        for _ in 0..<months.count {
+        for _ in 0..<piechartsData.count {
             let red = Double(arc4random_uniform(256))
             let green = Double(arc4random_uniform(256))
             let blue = Double(arc4random_uniform(256))
@@ -241,6 +257,46 @@ class TabListViewController: UIViewController {
         }
         
         pieChartsDataSet.colors = colors
+        
+    }
+    
+    func getTodaysStep(completion: @escaping (Double) -> Void) {
+        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+        
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        
+        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
+            guard let result = result, let sum = result.sumQuantity() else {
+                completion(0.0)
+                return
+            }
+            completion(sum.doubleValue(for: HKUnit.count()))
+        }
+        
+        healthKitStore.execute(query)
+        
+    }
+    
+    //バーチャートへの表示
+    func horizontalBarChatUpdate(getStepsValues: Double){
+        
+        //データの挿入
+        let entry1 = BarChartDataEntry(x:1.0, y: getStepsValues)
+        print("\(entry1)")
+        
+        //データセット
+        let dataSet = BarChartDataSet(entries: [entry1], label:"今日の歩数")
+        let data = BarChartData(dataSets: [dataSet])
+        
+        //グラフのアニメーション表記(秒数指定）
+        horizontalBarChart.animate(xAxisDuration: 1.0)
+        
+        //チャート表示
+        horizontalBarChart.data = data
+        //Colorの設定
+        dataSet.colors = ChartColorTemplates.vordiplom()
         
     }
     

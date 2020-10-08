@@ -996,17 +996,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54r-do-uHj" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="10" y="74" width="355" height="200"/>
+                                <rect key="frame" x="10" y="94" width="355" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="zVw-aA-ttq"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-7A-fuX">
-                                <rect key="frame" x="265" y="513" width="100" height="100"/>
+                                <rect key="frame" x="305" y="553" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="GBN-cL-UJK"/>
-                                    <constraint firstAttribute="width" constant="100" id="o98-5W-aPC"/>
+                                    <constraint firstAttribute="height" constant="60" id="GBN-cL-UJK"/>
+                                    <constraint firstAttribute="width" constant="60" id="o98-5W-aPC"/>
                                 </constraints>
                                 <state key="normal" image="slack"/>
                                 <connections>
@@ -1014,27 +1014,48 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iF2-ef-Y4V" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="10" y="284" width="355" height="219"/>
+                                <rect key="frame" x="10" y="304" width="355" height="149"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAg-tj-hJX" customClass="HorizontalBarChartView" customModule="Charts">
+                                <rect key="frame" x="10" y="453" width="355" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020年10月8日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef6-jD-lFE">
+                                <rect key="frame" x="122.5" y="47" width="130" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="4Cg-pI-TBi"/>
+                                    <constraint firstAttribute="width" constant="130" id="e3c-Oz-INc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qgI-hw-vER"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iF2-ef-Y4V" firstAttribute="top" secondItem="54r-do-uHj" secondAttribute="bottom" constant="10" id="0DQ-RD-w7v"/>
-                            <constraint firstItem="54r-do-uHj" firstAttribute="top" secondItem="qgI-hw-vER" secondAttribute="top" constant="30" id="2qw-mY-nlT"/>
+                            <constraint firstItem="54r-do-uHj" firstAttribute="top" secondItem="qgI-hw-vER" secondAttribute="top" constant="50" id="2qw-mY-nlT"/>
                             <constraint firstItem="qgI-hw-vER" firstAttribute="trailing" secondItem="54r-do-uHj" secondAttribute="trailing" constant="10" id="3OT-RS-CPs"/>
                             <constraint firstItem="iF2-ef-Y4V" firstAttribute="leading" secondItem="qgI-hw-vER" secondAttribute="leading" constant="10" id="4ob-aU-jih"/>
                             <constraint firstItem="qgI-hw-vER" firstAttribute="trailing" secondItem="iF2-ef-Y4V" secondAttribute="trailing" constant="10" id="7zc-jM-2DF"/>
-                            <constraint firstItem="7h1-7A-fuX" firstAttribute="top" secondItem="iF2-ef-Y4V" secondAttribute="bottom" constant="10" id="Hsm-XI-bjO"/>
+                            <constraint firstItem="7h1-7A-fuX" firstAttribute="top" secondItem="iF2-ef-Y4V" secondAttribute="bottom" constant="100" id="Hsm-XI-bjO"/>
+                            <constraint firstItem="JAg-tj-hJX" firstAttribute="top" secondItem="iF2-ef-Y4V" secondAttribute="bottom" id="IOw-D0-OMM"/>
+                            <constraint firstItem="7h1-7A-fuX" firstAttribute="top" secondItem="JAg-tj-hJX" secondAttribute="bottom" id="X3U-9k-s3N"/>
+                            <constraint firstItem="Ef6-jD-lFE" firstAttribute="centerX" secondItem="SPn-G9-I1D" secondAttribute="centerX" id="fqB-4n-PrZ"/>
                             <constraint firstItem="54r-do-uHj" firstAttribute="leading" secondItem="qgI-hw-vER" secondAttribute="leading" constant="10" id="gor-5s-awy"/>
+                            <constraint firstItem="JAg-tj-hJX" firstAttribute="leading" secondItem="qgI-hw-vER" secondAttribute="leading" constant="10" id="hYB-oC-haw"/>
+                            <constraint firstItem="qgI-hw-vER" firstAttribute="trailing" secondItem="JAg-tj-hJX" secondAttribute="trailing" constant="10" id="mZw-Pw-pAX"/>
                             <constraint firstItem="qgI-hw-vER" firstAttribute="trailing" secondItem="7h1-7A-fuX" secondAttribute="trailing" constant="10" id="mls-9Z-fjk"/>
+                            <constraint firstItem="Ef6-jD-lFE" firstAttribute="top" secondItem="qgI-hw-vER" secondAttribute="top" constant="3" id="oeD-Oa-676"/>
                             <constraint firstItem="54r-do-uHj" firstAttribute="centerX" secondItem="SPn-G9-I1D" secondAttribute="centerX" id="v9I-Yr-ld6"/>
                             <constraint firstItem="qgI-hw-vER" firstAttribute="bottom" secondItem="7h1-7A-fuX" secondAttribute="bottom" constant="5" id="yom-PU-rcH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="q7d-Rb-prM"/>
                     <connections>
+                        <outlet property="horizontalBarChart" destination="JAg-tj-hJX" id="m5G-cE-fcg"/>
                         <outlet property="lineChartView" destination="54r-do-uHj" id="UR8-uG-Vwa"/>
                         <outlet property="pieChartView" destination="iF2-ef-Y4V" id="MtX-s6-9j9"/>
                     </connections>
@@ -1254,8 +1275,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Vd5-uR-oOx"/>
-        <segue reference="dFe-Dp-IHF"/>
+        <segue reference="BYE-fn-fE7"/>
+        <segue reference="zTR-IT-nsb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar.circle.fill" catalog="system" width="128" height="121"/>
